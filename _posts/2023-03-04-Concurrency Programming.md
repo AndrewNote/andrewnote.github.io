@@ -1,3 +1,8 @@
+# 동시성 프로그래밍
+- 모든 Task(작업)를 하나의 Thread가 아닌 여러개의 Thread가 처리하기 때문에 효율적으로 Task(작업)을 처리할 수 있음
+- 효율적으로 Task(작업)를 처리한다면 Software가 더 자연스럽게 동작할 수 있음 **(최적화)**
+- 자연스럽게 동작한다는건 Software의 사용성과 반응성이 좋아진다고 볼 수 있음
+
 ## Core
 - 한번에 한가지 일만 처리
 - Core가 여러 개라면 여러개의 일을 동시에 처리할 수 있다
@@ -20,8 +25,34 @@
 - 가상으로 만들어진 Thread이기 때문에 물리적인 Thread 갯수와는 상관없음
 
 ## Parallel Programming(병렬 프로그래밍)
-- 여러 개의 Core(CPU)가 하나의 Task작업을 분담해서 처리
-- 물리적으로 Core(CPU)가 2개 이상 있을 때 가능
+- Multi Core
+- 여러 개의 Core(CPU)가 **하나의 Task(작업)을** 분담해서 처리
+    ~~여러개의 Core가 각각 하나의 Task(작업)을 수행하는건 병렬 프로그래밍이 아님~~
+- 물리적으로 Core(CPU)가 2개 이상 있을 때만 가능 ~~SingleCore는 불가능~~
+
+## Concurrency Programming(동시성 프로그래밍)
+- Multi Thread
+- 여러개의 Task(작업)을 나열해두고 하나씩 번갈아가면서 작업을 처리하는 것
+- SingleCore에서도 가능
+
+## Serial Programming(직렬성 프로그래밍)
+- Concurrency Programming(동시성 프로그래밍)과 반대되는 개념
+- 단 하나의 Thread에서만 작업
+- 모든 Task(작업)을 순서대로 처리해야 함
+
+## Synchronous(동기)
+- 하나의 Task(작업)가 끝나기를 기다렸다가 다음 Task(작업)을 처리
+- 실행 종료 시점을 알 수 있음
+
+## Asynchronous(비동기)
+- 하나의 Task(작업)가 끝나기전에 다음 Task(작업)을 처리
+- 실행 종료 시점을 알 수 없음
+
+## GCD(Grand Central Dispatch)
+- 직접 Core와 Thread를 관리하지 않아도 시스템에서 관리해줌
+- Multi Core / Multi Thread에 최적화
+
+
 
 ## Reference
 [wikipedia: Single-core](https://en.wikipedia.org/wiki/Single-core)
