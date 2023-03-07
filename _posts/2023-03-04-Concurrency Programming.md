@@ -52,6 +52,27 @@
 - 직접 Core와 Thread를 관리하지 않아도 시스템에서 관리해줌
 - Multi Core / Multi Thread에 최적화
 
+## DispatchQueue
+- `대기열에 보내다`라는 뜻
+- GCD를 사용하기 위한 대기열
+- FIFO(First In, First Out)로 작업을 처리
+- SingleThread를 사용할것인가 MultiThread 사용할것인가(Serial / Concurrent) 선택
+- sync / asycn 에서 선택 
+```swift
+DispatchQueue(label: "Serial")
+DispatchQueue.main
+
+DispatchQueue(label: "Concurrent", attributes: .concurrent)
+DispatchQueue.global()
+```
+- DispatchQueue를 초기화할 때 attributes를 .concurrent로 설정하지 않으면 default값으로 Serial이 됨
+- label은 값을 받아 DispatchQueue를 초기화하는 메서드
+
+
+
+
+
+- main 앱이 실행되는 동안에는 Memory에 계속 올려져 있음
 
 
 ## Reference
